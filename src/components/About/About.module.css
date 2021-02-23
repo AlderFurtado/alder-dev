@@ -1,11 +1,10 @@
 .wrapper {
-  padding: 0 4em;
+  padding: 3em 4em;
   display: flex;
   flex-direction: row;
   color: #f8f8f8;
   justify-content: space-between;
   margin-top: 6rem;
-  padding-top: 3em;
   background-color: #010d21;
 }
 
