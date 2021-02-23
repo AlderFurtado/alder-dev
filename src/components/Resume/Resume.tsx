@@ -10,7 +10,7 @@ interface Step {
   activity: string;
   period: string;
 }
-const Resume: React.FC = () => {
+const Resume = (): JSX.Element => {
   const resume: Array<Step> = [
     {
       id: "1",

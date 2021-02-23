@@ -3,7 +3,7 @@ import styles from "./About.module.css";
 
 import Image from "next/image";
 
-const About: React.FC = () => {
+const About = (): JSX.Element => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.container_image}>

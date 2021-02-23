@@ -6,7 +6,7 @@ import Resume from "../src/components/Resume/Resume";
 
 import Menu from "../src/layout/Menu/Menu";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <div>
       <Menu />

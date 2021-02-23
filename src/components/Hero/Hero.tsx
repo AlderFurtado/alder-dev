@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 
 import Image from "next/image";
 
-const Hero: React.FC = (): JSX.Element => {
+const Hero = (): JSX.Element => {
   return (
     <section className={styles.wrapper}>
       <div>

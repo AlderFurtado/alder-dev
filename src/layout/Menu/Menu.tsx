@@ -3,7 +3,7 @@ import styles from "./Menu.module.css";
 
 import Image from "next/image";
 
-const Menu: React.FC = () => {
+const Menu = (): JSX.Element => {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
 
   const toogleMenu = (): void => {
