@@ -1,0 +1,14 @@
+.wrapper {
+  padding: 3em 4em;
+  color: #f8f8f8;
+}
+
+.wrapper h2 {
+  font-size: 32px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

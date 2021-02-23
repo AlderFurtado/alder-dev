@@ -1,7 +1,11 @@
 import Head from "next/head";
+
 import Hero from "../src/components/Hero/Hero";
 import About from "../src/components/About/About";
+import Resume from "../src/components/Resume/Resume";
+
 import Menu from "../src/layout/Menu/Menu";
+
 export default function Home() {
   return (
     <div>
@@ -12,6 +16,7 @@ export default function Home() {
       </Head>
       <Hero />
       <About />
+      <Resume />
     </div>
   );
 }
