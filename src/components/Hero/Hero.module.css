@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 0 60px;
+  margin: 0 12%;
   display: flex;
   flex-direction: row;
   color: #f8f8f8;
@@ -9,12 +9,12 @@
 }
 
 .wrapper h1 {
-  font-size: 3.4vw;
+  font-size: 2.7rem;
   font-weight: bold;
 }
 
 .wrapper p {
-  font-size: 1.8vw;
+  font-size: 1.5rem;
   color: #909090;
 }
 

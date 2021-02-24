@@ -16,7 +16,9 @@ const Hero = (): JSX.Element => {
           tecnologia
         </p>
       </div>
-      <Image src="/hero.png" width="450" height="250" />
+      <div>
+        <Image src="/hero.png" width="450" height="250" />
+      </div>
     </section>
   );
 };
