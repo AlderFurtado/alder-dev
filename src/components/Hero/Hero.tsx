@@ -12,7 +12,7 @@ const Hero = (): JSX.Element => {
           <br></br> Sou Fullstack developer{" "}
         </h1>
         <p>
-          Todo négocio precisa de tecnologia,<br></br> e o meu négocio é
+          Todo négociodadsa precisa de tecnologia,<br></br> e o meu négocio é
           tecnologia
         </p>
       </div>
