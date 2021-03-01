@@ -6,6 +6,8 @@ import Resume from "../src/components/Resume/Resume";
 
 import Menu from "../src/layout/Menu/Menu";
 import Contact from "../src/components/Contact/Contact";
+import Product from "../src/components/Project/Project";
+import Footer from "../src/layout/Footer/Footer";
 
 export default function Home(): JSX.Element {
   return (
@@ -18,7 +20,9 @@ export default function Home(): JSX.Element {
       <Hero />
       <About />
       <Resume />
+      {/* <Product /> */}
       <Contact />
+      <Footer />
     </div>
   );
 }
