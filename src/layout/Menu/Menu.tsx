@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Menu.module.css";
 
-import Image from "next/image";
-
 const Menu = (): JSX.Element => {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
 
@@ -14,7 +12,7 @@ const Menu = (): JSX.Element => {
     <>
       <nav className={styles.wrapper}>
         <div>
-          <Image src="/logo.png" width="60" height="43" layout="fixed" />
+          <img src="/logo.png" width="60" height="43" />
         </div>
         <ul className={styles.menu_web}>
           <li>Inicio</li>
@@ -28,7 +26,7 @@ const Menu = (): JSX.Element => {
             toogleMenu();
           }}
         >
-          <Image src="/menu_white.svg" width="24" height="24" layout="fixed" />
+          <img src="/menu_white.svg" width="24" height="24" />
         </div>
       </nav>
       {isActiveMenu && (
