@@ -25,7 +25,8 @@
 .container_img {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 3vw;
   align-items: center;
 }
 
@@ -37,5 +38,10 @@
 
   .wrapper p {
     font-size: 4vw;
+  }
+
+  .container_img {
+    justify-content: center;
+    margin-right: 0;
   }
 }
