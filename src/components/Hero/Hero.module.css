@@ -9,7 +9,7 @@
 }
 
 .wrapper h1 {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -21,13 +21,21 @@
 .wrapper span {
   border-bottom: 3px solid #8f0b4c;
 }
+
+.container_img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 800px) {
   .wrapper h1 {
     margin-top: 30px;
-    font-size: 5.2vw;
+    font-size: 6.2vw;
   }
 
   .wrapper p {
-    font-size: 3.8vw;
+    font-size: 4vw;
   }
 }
