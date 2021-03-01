@@ -1,21 +1,31 @@
 import axios from "axios";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import styles from "./FormContact.module.css";
 
 const FormContact = (): JSX.Element => {
   const [name, setName] = useState("");
+  const [isNameValid, setIsNameValid] = useState(true);
   const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
   const [subject, setSubject] = useState("");
+  const [isSubjectValid, setIsSubjectValid] = useState(true);
+
   const [isSendingForm, setIsSendingForm] = useState(false);
 
   const CORS_PROXY = "https://cors-escape.herokuapp.com/";
   const GOOGLE_FORM_ACTION_URL =
     "https://docs.google.com/forms/u/1/d/e/1FAIpQLScNV_Gn_0BR3pfqnrpM_HqtsWXW0CF2pkL1K9ycW5YiZDUTZg/formResponse";
 
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
   const handleForm = async (e: FormEvent) => {
-    setIsSendingForm(true);
     e.preventDefault();
 
+    if (!validateForm()) return;
+
+    setIsSendingForm(true);
     const formData = new FormData();
     formData.append("entry.1651922784", name);
     formData.append("entry.1804104486", email);
@@ -26,13 +36,44 @@ const FormContact = (): JSX.Element => {
     } catch (error) {
       console.log(error);
     } finally {
+      if (Notification.permission == "granted") {
+        console.log("kdaik");
+        new Notification("Status da messagem", {
+          body: "Messagem enviada com sucesso 😎",
+        });
+      }
       setIsSendingForm(false);
       resetForm();
     }
   };
 
+  const validateForm = () => {
+    let isValid = true;
+    if (email.trim().length == 0) {
+      setIsEmailValid(false);
+      isValid = false;
+    } else {
+      setIsEmailValid(true);
+    }
+
+    if (name.trim().length == 0) {
+      setIsNameValid(false);
+      isValid = false;
+    } else {
+      setIsNameValid(true);
+    }
+
+    if (subject.trim().length == 0) {
+      setIsSubjectValid(false);
+      isValid = false;
+    } else {
+      setIsSubjectValid(true);
+    }
+
+    return isValid;
+  };
+
   const resetForm = () => {
-    console.log("dako");
     setName("");
     setEmail("");
     setSubject("");
@@ -40,24 +81,33 @@ const FormContact = (): JSX.Element => {
 
   return (
     <form className={styles.container} onSubmit={(e) => handleForm(e)}>
-      <input
-        type="text"
-        placeholder="Nome"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <textarea
-        placeholder="Assunto"
-        rows={15}
-        value={subject}
-        onChange={(e) => setSubject(e.target.value)}
-      />
+      <div className={styles.container_input}>
+        <input
+          type="text"
+          placeholder="Nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        {!isNameValid && <span>Preencha o campo</span>}
+      </div>
+      <div className={styles.container_input}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        {!isEmailValid && <span>Preencha o campo</span>}
+      </div>
+      <div className={styles.container_input}>
+        <textarea
+          placeholder="Assunto"
+          rows={15}
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
+        {!isSubjectValid && <span>Preencha o campo</span>}
+      </div>
       <button type="submit">{isSendingForm ? "Enviando..." : "Enviar"}</button>
     </form>
   );
