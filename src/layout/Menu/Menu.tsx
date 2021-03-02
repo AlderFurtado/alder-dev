@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Menu.module.css";
 
+import Link from "next/link";
+
 const Menu = (): JSX.Element => {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
 
@@ -15,8 +17,12 @@ const Menu = (): JSX.Element => {
           <img src="/logo.png" width="60" height="43" />
         </div>
         <ul className={styles.menu_web}>
-          <li>Inicio</li>
-          <li>Blog</li>
+          <Link href="/">
+            <li>Inicio</li>
+          </Link>
+          <Link href="/blog">
+            <li>Blog</li>
+          </Link>
           <li>Contato</li>
         </ul>
         {/* Part mobile */}

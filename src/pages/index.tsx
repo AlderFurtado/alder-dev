@@ -1,13 +1,12 @@
 import Head from "next/head";
 
-import Hero from "../src/components/Hero/Hero";
-import About from "../src/components/About/About";
-import Resume from "../src/components/Resume/Resume";
-
-import Menu from "../src/layout/Menu/Menu";
-import Contact from "../src/components/Contact/Contact";
-import Product from "../src/components/Project/Project";
-import Footer from "../src/layout/Footer/Footer";
+import Hero from "../components/Hero/Hero";
+import About from "../components/About/About";
+import Resume from "../components/Resume/Resume";
+import Menu from "../layout/Menu/Menu";
+import Contact from "../components/Contact/Contact";
+import Product from "../components/Project/Project";
+import Footer from "../layout/Footer/Footer";
 
 export default function Home(): JSX.Element {
   return (
