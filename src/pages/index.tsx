@@ -33,7 +33,10 @@ export default function Home(): JSX.Element {
           property="og:description"
           content="Site profissional de desenvolvedor Full Stack - Alder Furtado"
         />
-        <meta property="og:image" content="./me.png" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/C2xMB91/pexels-al-sha-lamkinson-3452388.jpg"
+        />
         <meta property="og:url" content="https://alder-dev.vercel.app" />
       </Head>
       <Hero />
