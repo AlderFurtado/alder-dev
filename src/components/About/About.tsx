@@ -12,13 +12,11 @@ const About = (): JSX.Element => {
       <div>
         <h2>Sobre</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores
-          adipisci dolorum voluptatibus expedita eveniet qui dicta, aspernatur
-          sapiente eum at eligendi reprehenderit recusandae odit ullam ducimus
-          cupiditate minima tempore? Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit. Dolorum adipisci dolor, minus nam minima eligendi.
-          Blanditiis quod tempora, inventore accusantium perspiciatis placeat.
-          Velit molestiae ullam consequuntur dignissimos nemo quidem eius!
+          Sou bacharel em Ciência da Computação pelo CESUPA - Centro
+          Universitário do Pará. Apaixonado por tecnologia, acredito que a mesma
+          possa ser a extensão da capacidade humana. Também me arrisco no mundo
+          da finanças e super curioso pelo estudo da psicologia. Espero que
+          possa encontrar o que deseja nesse site 😃
         </p>
       </div>
     </section>
