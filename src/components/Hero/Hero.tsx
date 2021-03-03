@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Hero.module.css";
 
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Image from "next/image";
 const Hero = (): JSX.Element => {
   return (
     <section className={styles.wrapper}>
-      <div>
+      <div className={styles.container_hero}>
         <h1>
           Olá, Eu sou <span>Alder Furtado</span>
           <br></br> Sou Fullstack developer{" "}
