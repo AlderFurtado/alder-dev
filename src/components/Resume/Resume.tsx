@@ -57,9 +57,9 @@ const Resume = (): JSX.Element => {
 
   return (
     <section className={styles.wrapper}>
-      <h2>Resume</h2>
+      <h2>Histórico</h2>
       <div className={styles.container}>
-        {resume.map((r) => {
+        {resume.map((r, index) => {
           return (
             <ResumeItem
               key={r.id}
@@ -67,6 +67,7 @@ const Resume = (): JSX.Element => {
               name={r.name}
               activity={r.activity}
               period={r.period}
+              index={index}
             />
           );
         })}

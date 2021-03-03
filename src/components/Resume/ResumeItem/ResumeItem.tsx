@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import styles from "./ResumeItem.module.css";
+import { Container, ContainerPeriod } from "./ResumeItem.styles";
 import Image from "next/image";
 
 interface StepProps {
@@ -8,19 +8,38 @@ interface StepProps {
   name: string;
   activity: string;
   period: string;
+  index: number;
 }
 
-const ResumeItem = ({ name, activity, period }: StepProps) => {
+const ResumeItem = ({ name, activity, period, index }: StepProps) => {
+  const sec = useRef(null);
+  const [activeAnimation, setActiveAnimaion] = useState(false);
+  const factorDelay = 3;
+
+  useEffect((): void => {
+    window.addEventListener("scroll", () => {
+      if (sec.current?.getBoundingClientRect().top > 600) {
+        console.log(sec.current?.getBoundingClientRect().top);
+      } else {
+        setActiveAnimaion(true);
+      }
+    });
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <Container
+      ref={sec}
+      activeAnimation={activeAnimation}
+      delay={index * factorDelay * 100}
+    >
       <h3>{name}</h3>
       <p>{activity}</p>
-      <div className={styles.container_period}>
+      <ContainerPeriod>
         <Image src="/clock.svg" width="16" height="16" />
         &nbsp; &nbsp;
         <span>{period}</span>
-      </div>
-    </div>
+      </ContainerPeriod>
+    </Container>
   );
 };
 

@@ -1,11 +1,12 @@
-import React from "react";
-import styles from "./Footer.module.css";
+import React, { useEffect, useRef, useState } from "react";
+
+import { Wrapper } from "./Footer.styles";
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className={styles.wrapper}>
+    <Wrapper>
       <p>©Copyright - Alder Furtado</p>
-    </footer>
+    </Wrapper>
   );
 };
 
