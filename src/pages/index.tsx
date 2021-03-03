@@ -35,7 +35,7 @@ export default function Home(): JSX.Element {
         />
         <meta
           property="og:image"
-          content="https://i.ibb.co/C2xMB91/pexels-al-sha-lamkinson-3452388.jpg"
+          content="https://i.ibb.co/YBLKFSf/IMG-20200807-191408-106-1.png"
         />
         <meta property="og:url" content="https://alder-dev.vercel.app" />
       </Head>
