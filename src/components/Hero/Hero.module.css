@@ -9,7 +9,7 @@
 }
 
 .wrapper h1 {
-  font-size: 2.5rem;
+  font-size: 3.2vw;
   font-weight: bold;
 }
 
@@ -45,6 +45,10 @@
   align-items: center;
   opacity: 0;
   animation: goshow 500ms 1s linear normal forwards;
+}
+
+.container_img img {
+  width: 70%;
 }
 
 @keyframes goshow {

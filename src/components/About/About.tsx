@@ -9,7 +9,7 @@ const About = (): JSX.Element => {
 
   useEffect((): void => {
     window.addEventListener("scroll", () => {
-      if (sec.current?.getBoundingClientRect().top > 200) {
+      if (sec.current?.getBoundingClientRect().top > 220) {
         console.log(sec.current?.getBoundingClientRect().top);
       } else {
         setActiveAnimaion(true);
@@ -28,8 +28,9 @@ const About = (): JSX.Element => {
           Sou bacharel em Ciência da Computação pelo CESUPA - Centro
           Universitário do Pará. Apaixonado por tecnologia, acredito que a mesma
           possa ser a extensão da capacidade humana. Também me arrisco no mundo
-          da finanças e super curioso pelo estudo da psicologia. Espero que
-          possa encontrar o que deseja nesse site 😃
+          da finanças e super curioso pelo estudo da psicologia. Este é um
+          espaço que para eu contar um pouco da minha historia e aprendizados88
+          😃
         </Subtitle>
       </div>
     </Wrapper>
