@@ -7,7 +7,7 @@ const Blog: React.FC = () => {
       <h2>
         Estamos trabalhando nisso.
         <br /> Sabemos que software não são feitos do dia para noite
-        <br /> mas logo sairá essa novidade 😅
+        <br /> mas em breve sairá essa novidade 😅
       </h2>
     </section>
   );

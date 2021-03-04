@@ -14,6 +14,7 @@ interface StepProps {
 const ResumeItem = ({ name, activity, period, index }: StepProps) => {
   const sec = useRef(null);
   const [activeAnimation, setActiveAnimaion] = useState(false);
+  const factorDelay = 3;
 
   useEffect((): void => {
     window.addEventListener("scroll", () => {
@@ -29,7 +30,7 @@ const ResumeItem = ({ name, activity, period, index }: StepProps) => {
     <Container
       ref={sec}
       activeAnimation={activeAnimation}
-      delay={index * 2 * 100}
+      delay={index * factorDelay * 100}
     >
       <h3>{name}</h3>
       <p>{activity}</p>

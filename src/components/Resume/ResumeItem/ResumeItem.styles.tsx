@@ -6,17 +6,20 @@ interface ContainerStylesProps {
 }
 
 const animationShow = keyframes`
-    from{
-        transform: translateX(-1200px)
+    0%{
+        opacity:0;
+        /* transform: translateX(-1200px) */
     }
 
-    to{
-         transform: translateX(-0px)
+    100%{
+        opacity:1;
+
+         /* transform: translateX(0px) */
     }
 `;
 
 export const Container = styled.div<ContainerStylesProps>`
-  transform: translateX(-1200px);
+  opacity: 0;
   max-width: 320px;
   margin-top: 1.5em;
   padding: 16px;
@@ -26,7 +29,7 @@ export const Container = styled.div<ContainerStylesProps>`
   animation: ${(props) =>
     props.activeAnimation
       ? css`
-          ${animationShow} 500ms ${props.delay + "ms"} linear forwards
+          ${animationShow} 1s ${props.delay + "ms"} ease forwards
         `
       : null};
   h3 {

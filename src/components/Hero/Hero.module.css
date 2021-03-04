@@ -47,10 +47,6 @@
   animation: goshow 500ms 1s linear normal forwards;
 }
 
-.container_img img {
-  width: 70%;
-}
-
 @keyframes goshow {
   from {
     opacity: 0;

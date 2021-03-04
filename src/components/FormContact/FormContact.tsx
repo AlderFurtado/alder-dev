@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { FormEvent, useEffect, useState } from "react";
-import styles from "./FormContact.module.css";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
+import { Container, ContainerInput } from "./FormContact.styles";
 
 const FormContact = (): JSX.Element => {
   const [name, setName] = useState("");
@@ -42,9 +42,9 @@ const FormContact = (): JSX.Element => {
           body: "Messagem enviada com sucesso 😎",
         });
       }
-      setIsSendingForm(false);
-      resetForm();
     }
+    setIsSendingForm(false);
+    resetForm();
   };
 
   const validateForm = () => {
@@ -79,9 +79,22 @@ const FormContact = (): JSX.Element => {
     setSubject("");
   };
 
+  const sec = useRef(null);
+  const [activeAnimation, setActiveAnimaion] = useState(false);
+
+  useEffect((): void => {
+    window.addEventListener("scroll", () => {
+      if (sec.current?.getBoundingClientRect().top > 400) {
+        console.log(sec.current?.getBoundingClientRect().top);
+      } else {
+        setActiveAnimaion(true);
+      }
+    });
+  }, []);
+
   return (
-    <form className={styles.container} onSubmit={(e) => handleForm(e)}>
-      <div className={styles.container_input}>
+    <Container onSubmit={(e) => handleForm(e)} ref={sec}>
+      <ContainerInput activeAnimation={false}>
         <input
           type="text"
           placeholder="Nome"
@@ -89,8 +102,8 @@ const FormContact = (): JSX.Element => {
           onChange={(e) => setName(e.target.value)}
         />
         {!isNameValid && <span>Preencha o campo</span>}
-      </div>
-      <div className={styles.container_input}>
+      </ContainerInput>
+      <ContainerInput activeAnimation={false}>
         <input
           type="email"
           placeholder="Email"
@@ -98,8 +111,8 @@ const FormContact = (): JSX.Element => {
           onChange={(e) => setEmail(e.target.value)}
         />
         {!isEmailValid && <span>Preencha o campo</span>}
-      </div>
-      <div className={styles.container_input}>
+      </ContainerInput>
+      <ContainerInput activeAnimation={false}>
         <textarea
           placeholder="Assunto"
           rows={15}
@@ -107,9 +120,9 @@ const FormContact = (): JSX.Element => {
           onChange={(e) => setSubject(e.target.value)}
         />
         {!isSubjectValid && <span>Preencha o campo</span>}
-      </div>
+      </ContainerInput>
       <button type="submit">{isSendingForm ? "Enviando..." : "Enviar"}</button>
-    </form>
+    </Container>
   );
 };
 
