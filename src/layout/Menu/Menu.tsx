@@ -37,8 +37,12 @@ const Menu = (): JSX.Element => {
       </nav>
       {isActiveMenu && (
         <ul className={styles.menu_mobile}>
-          <li>Inicio</li>
-          <li>Blog</li>
+          <Link href="/">
+            <li>Inicio</li>
+          </Link>
+          <Link href="/blog">
+            <li>Blog</li>
+          </Link>
           <li>Contato</li>
         </ul>
       )}
