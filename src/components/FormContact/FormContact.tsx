@@ -79,22 +79,9 @@ const FormContact = (): JSX.Element => {
     setSubject("");
   };
 
-  const sec = useRef(null);
-  const [activeAnimation, setActiveAnimaion] = useState(false);
-
-  useEffect((): void => {
-    window.addEventListener("scroll", () => {
-      if (sec.current?.getBoundingClientRect().top > 400) {
-        console.log(sec.current?.getBoundingClientRect().top);
-      } else {
-        setActiveAnimaion(true);
-      }
-    });
-  }, []);
-
   return (
-    <Container onSubmit={(e) => handleForm(e)} ref={sec}>
-      <ContainerInput activeAnimation={false}>
+    <Container onSubmit={(e) => handleForm(e)}>
+      <ContainerInput>
         <input
           type="text"
           placeholder="Nome"
@@ -103,7 +90,7 @@ const FormContact = (): JSX.Element => {
         />
         {!isNameValid && <span>Preencha o campo</span>}
       </ContainerInput>
-      <ContainerInput activeAnimation={false}>
+      <ContainerInput>
         <input
           type="email"
           placeholder="Email"
@@ -112,7 +99,7 @@ const FormContact = (): JSX.Element => {
         />
         {!isEmailValid && <span>Preencha o campo</span>}
       </ContainerInput>
-      <ContainerInput activeAnimation={false}>
+      <ContainerInput>
         <textarea
           placeholder="Assunto"
           rows={15}

@@ -1,19 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
 
-interface StylesProps {
-  activeAnimation: boolean;
-}
-
-const animationShow = keyframes`
-    from {
-        opacity:0
-    }
-
-    to{
-        opacity:1
-    }
-`;
-
 export const Container = styled.form`
   display: flex;
   flex-direction: column;
@@ -53,17 +39,11 @@ export const Container = styled.form`
   }
 `;
 
-export const ContainerInput = styled.div<StylesProps>`
+export const ContainerInput = styled.div`
   opacity: 1;
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
-  animation: ${(props) =>
-    props.activeAnimation
-      ? css`
-          ${animationShow} 500ms 1s linear forwards;
-        `
-      : null};
 
   span {
     color: #8f0b4c;

@@ -23,7 +23,9 @@ const Menu = (): JSX.Element => {
           <Link href="/blog">
             <li>Blog</li>
           </Link>
-          <li>Contato</li>
+          <a href="#contact">
+            <li>Contato</li>
+          </a>
         </ul>
         {/* Part mobile */}
         <div
