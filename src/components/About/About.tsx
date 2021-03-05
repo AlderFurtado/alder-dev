@@ -10,7 +10,6 @@ const About = (): JSX.Element => {
   useEffect((): void => {
     window.addEventListener("scroll", () => {
       if (sec.current?.getBoundingClientRect().top > 400) {
-        console.log(sec.current?.getBoundingClientRect().top);
       } else {
         setActiveAnimaion(true);
       }

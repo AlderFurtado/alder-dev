@@ -37,7 +37,6 @@ const FormContact = (): JSX.Element => {
       console.log(error);
     } finally {
       if (Notification.permission == "granted") {
-        console.log("kdaik");
         new Notification("Status da messagem", {
           body: "Messagem enviada com sucesso 😎",
         });

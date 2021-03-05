@@ -19,7 +19,6 @@ const ResumeItem = ({ name, activity, period, index }: StepProps) => {
   useEffect((): void => {
     window.addEventListener("scroll", () => {
       if (sec.current?.getBoundingClientRect().top > 600) {
-        console.log(sec.current?.getBoundingClientRect().top);
       } else {
         setActiveAnimaion(true);
       }
