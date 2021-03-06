@@ -1,3 +1,7 @@
+interface Author {
+    type: string, text: string, spans: []
+}
+
 interface MainImagePrismic {
     alt: null | any
     copyright: null | any
@@ -7,7 +11,7 @@ interface MainImagePrismic {
 
 export interface ResultResponsePrismic {
     alternate_languages: string[]
-    data: { title: any, subtitle: any, main_image: MainImagePrismic, content: any, author: object[] }
+    data: { title: any, subtitle: any, main_image: MainImagePrismic, content: any, author: Author[] }
     first_publication_date: string
     href: string
     id: string
