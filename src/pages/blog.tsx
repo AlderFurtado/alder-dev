@@ -3,26 +3,29 @@ import Blog from "../components/Blog/Blog";
 import Menu from "../layout/Menu/Menu";
 import { GetStaticProps } from "next";
 import { getPosts } from "../services/prismic";
-import ResultResponsePrismic from "../types/ResponsePrismic";
+import ResponsePrismic from "../types/ResponsePrismic";
+import Footer from "../layout/Footer/Footer";
 
-const blog = (props: ResultResponsePrismic): JSX.Element => {
-  useEffect(() => {
-    console.log(props);
-  }, []);
+interface BlogProps {
+  postsResponse: ResponsePrismic;
+}
+
+const blog = ({ postsResponse }: BlogProps): JSX.Element => {
   return (
     <>
       <Menu />
-      <Blog />
+      <Blog postsResponse={postsResponse} />
+      <Footer />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPosts();
-  console.log("aqui", posts);
+  const response = await getPosts();
+  const postsResponse = { ...response };
   return {
     props: {
-      posts,
+      postsResponse,
     },
   };
 };

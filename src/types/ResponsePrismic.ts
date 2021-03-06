@@ -1,6 +1,13 @@
-export default interface ResultResponsePrismic {
+interface MainImagePrismic {
+    alt: null | any
+    copyright: null | any
+    dimensions: { width: 1200, height: 600 }
+    url: string
+}
+
+export interface ResultResponsePrismic {
     alternate_languages: string[]
-    data: { title: any, subtitle: any, main_image: object, content: any }
+    data: { title: any, subtitle: any, main_image: MainImagePrismic, content: any, author: object[] }
     first_publication_date: string
     href: string
     id: string
@@ -18,7 +25,7 @@ export default interface ResponsePrismic {
     next_page: null | any
     page: number
     prev_page: null | any
-    results: ResultResponsePrismic
+    results: ResultResponsePrismic[]
     results_per_page: number
     results_size: number
     total_pages: number
