@@ -20,7 +20,8 @@ export const Wrapper = styled.section`
 
   h5 {
     font-size: 1.6rem;
-    font-weight: 400;
+    font-weight: 500;
+    margin: 0px 0px 1.5em;
   }
 
   span {
