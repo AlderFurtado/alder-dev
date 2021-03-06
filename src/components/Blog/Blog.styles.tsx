@@ -35,13 +35,13 @@ export const Wrapper = styled.section`
     }
 
     p {
-      font-size: 3.4vw;
+      font-size: 3.8vw;
       width: 100%;
     }
 
     h5 {
-      font-size: 3.6vw;
-      font-weight: 400;
+      font-size: 5.2vw;
+      font-weight: 500;
     }
 
     .container_img {
