@@ -28,7 +28,7 @@ export default function Home(): JSX.Element {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <meta property="og:title" content="Alder Dev" />
+        <meta property="og:title" content="Alder Furtado" />
         <meta
           property="og:description"
           content="Site profissional de desenvolvedor Full Stack - Alder Furtado"

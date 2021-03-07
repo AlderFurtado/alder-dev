@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Blog from "../components/Blog/Blog";
-import Menu from "../layout/Menu/Menu";
+import Blog from "../../components/Blog/Blog";
+import Menu from "../../layout/Menu/Menu";
 import { GetStaticProps } from "next";
-import { getPosts } from "../services/prismic";
-import ResponsePrismic from "../types/ResponsePrismic";
-import Footer from "../layout/Footer/Footer";
+import { getPosts } from "../../services/prismic";
+import ResponsePrismic from "../../types/ResponsePrismic";
+import Footer from "../../layout/Footer/Footer";
 
 interface BlogProps {
   postsResponse: ResponsePrismic;

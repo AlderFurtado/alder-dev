@@ -116,7 +116,7 @@ export const ContainerTag = styled.div`
 export const Tag = styled.div`
   background: #056f97;
   margin: 0;
-  font-size: 0.8vw;
+  font-size: 0.6vw;
   font-weight: 600;
   margin-right: 12px;
   padding: 6px 8px;
@@ -130,7 +130,7 @@ export const Tag = styled.div`
 
 export const ContainerInfoPublished = styled.div`
   display: flex;
-  color: #777777;
+  color: #8d8d8d;
   justify-content: space-between;
   p {
     font-size: 1vw;

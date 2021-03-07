@@ -17,7 +17,7 @@ const Hero = (): JSX.Element => {
         </p>
       </div>
       <div className={styles.container_img}>
-        <img src="./hero.png" alt="Alder DEV" />
+        <img src="./hero.png" alt="Alder Furtado" />
       </div>
     </section>
   );
