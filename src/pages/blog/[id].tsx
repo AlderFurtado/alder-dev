@@ -18,18 +18,6 @@ const blog = (props: ResultResponsePrismic): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (
-  context: GetStaticPropsContext
-) => {
-  const response = await getPost(context.params.id.toString());
-  const postResponse = { ...response };
-  return {
-    props: {
-      ...postResponse,
-    },
-  };
-};
-
 export const getStaticPaths = async () => {
   const response = await getPosts();
   const ids = response.results.map((r) => r.id);
@@ -42,8 +30,20 @@ export const getStaticPaths = async () => {
   });
 
   return {
-    paths: paths,
+    paths,
     fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
+  const response = await getPost(context.params.id.toString());
+  const postResponse = { ...response };
+  return {
+    props: {
+      ...postResponse,
+    },
   };
 };
 
