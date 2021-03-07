@@ -25,7 +25,7 @@ export const ContainerRest = styled.div`
 
 export const ContainerInfo = styled.div`
   margin: 1em 0 2em;
-  font-size: 1.2vw;
+  font-size: 1vw;
   color: #8d8d8d;
   display: flex;
   justify-content: space-between;
@@ -49,5 +49,5 @@ export const ContainerPostContent = styled.div`
   letter-spacing: 1.2px;
   line-height: 20px;
   padding: 5px 0px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
