@@ -19,10 +19,10 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
   console.log(props);
   return (
     <Wrapper>
-      <Breadcrumbs
+      {/* <Breadcrumbs
         root={"blog"}
         steps={[props.data.title[0].text]}
-      ></Breadcrumbs>
+      ></Breadcrumbs> */}
       <Container>
         <ContainerContent>
           <img src={props.data.main_image.url} />
