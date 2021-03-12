@@ -3,6 +3,8 @@ import { formateDate } from "../../helpers/formatters";
 import { setRichTextAsHtml, setRichTextAsText } from "../../services/prismic";
 import { ResultResponsePrismic } from "../../types/ResponsePrismic";
 import Breadcrumbs from "../Breadcrumbs/Breadcumbs";
+import Tag from "../Tag/Tag";
+import TextWithUnderscore from "../TextWithUnderscore/TextWithUnderscore";
 import {
   Container,
   ContainerContent,
@@ -38,6 +40,16 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
               __html: setRichTextAsHtml(props.data.content),
             }}
           />
+          <hr></hr>
+          <TextWithUnderscore
+            textNormal={"Tags"}
+            textUnderscore={"relacionadas"}
+          />
+          <div style={{ display: "flex" }}>
+            {props.tags.map((tag) => (
+              <Tag key={`tag ${tag}`} tag={tag} />
+            ))}
+          </div>
         </ContainerContent>
         <ContainerRest>
           <p>dkaoo</p>

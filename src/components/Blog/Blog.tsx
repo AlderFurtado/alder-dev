@@ -6,11 +6,12 @@ import {
   ContainerTag,
   ContainerInfoPublished,
   Layer,
-  Tag,
   Wrapper,
   ContainerPosts,
   ContainerPost,
 } from "./Blog.styles";
+
+import Tag from "../Tag/Tag";
 
 import Link from "next/link";
 import { formateDate } from "../../helpers/formatters";
@@ -37,9 +38,10 @@ const Blog = ({ postsResponse }: BlogProps): JSX.Element => {
             <ContainerInfo>
               <ContainerTag>
                 {postsResponse.results[0].tags.map((tag) => (
-                  <Tag key={`${postsResponse.results[0].id} - ${tag}`}>
-                    {tag}
-                  </Tag>
+                  <Tag
+                    key={`${postsResponse.results[0].id} - ${tag}`}
+                    tag={tag}
+                  ></Tag>
                 ))}
               </ContainerTag>
               <h4>{postsResponse.results[0].data.title[0].text}</h4>
@@ -70,7 +72,7 @@ const Blog = ({ postsResponse }: BlogProps): JSX.Element => {
                   <ContainerInfo>
                     <ContainerTag>
                       {post.tags.map((tag) => (
-                        <Tag key={`${post.id} - ${tag}`}>{tag}</Tag>
+                        <Tag key={`${post.id} - ${tag}`} tag={tag}></Tag>
                       ))}
                     </ContainerTag>
                     <h4>{post.data.title[0].text}</h4>

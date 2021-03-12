@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
+import BtnDefault from "../BtnDefault/BtnDefault";
 import { Container, ContainerInput } from "./FormContact.styles";
 
 const FormContact = (): JSX.Element => {
@@ -107,7 +108,7 @@ const FormContact = (): JSX.Element => {
         />
         {!isSubjectValid && <span>Preencha o campo</span>}
       </ContainerInput>
-      <button type="submit">{isSendingForm ? "Enviando..." : "Enviar"}</button>
+      <BtnDefault title="Enviar" />
     </Container>
   );
 };

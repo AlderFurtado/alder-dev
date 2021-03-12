@@ -20,20 +20,6 @@ export const Container = styled.form`
     font-family: "Raleway", sans-serif;
   }
 
-  button {
-    margin-top: 8px;
-    background-color: #8f0b4c;
-    border: none;
-    color: white;
-    padding: 16px 10px;
-    transition: background-color 200ms linear;
-  }
-
-  button:hover {
-    background-color: #5c0731;
-    cursor: pointer;
-  }
-
   @media (max-width: 800px) {
     margin-top: 1rem;
   }

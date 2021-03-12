@@ -15,7 +15,7 @@ export const Wrapper = styled.section`
 
   p {
     width: 70%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   h5 {
@@ -57,6 +57,7 @@ export const ContainerMainPost = styled.div`
   background: #31182e;
   position: relative;
   margin-bottom: 2em;
+  cursor: pointer;
 
   img {
     width: 100%;
@@ -96,7 +97,7 @@ export const ContainerInfo = styled.div`
   h4 {
     font-weight: bold;
     margin: 0;
-    font-size: 3vw;
+    font-size: 2.7vw;
     width: 70%;
   }
 
@@ -111,21 +112,6 @@ export const ContainerInfo = styled.div`
 export const ContainerTag = styled.div`
   display: flex;
   margin-bottom: 12px;
-`;
-
-export const Tag = styled.div`
-  background: #056f97;
-  margin: 0;
-  font-size: 0.6vw;
-  font-weight: 600;
-  margin-right: 12px;
-  padding: 6px 8px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  @media (max-width: 800px) {
-    font-size: 1.5vw;
-    padding: 4px 6px;
-  }
 `;
 
 export const ContainerInfoPublished = styled.div`
@@ -156,6 +142,7 @@ export const ContainerPost = styled.div`
   background: #31182e;
   position: relative;
   margin-bottom: 2em;
+  cursor: pointer;
 
   img {
     width: 100%;
