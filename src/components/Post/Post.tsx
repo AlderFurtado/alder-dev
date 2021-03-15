@@ -1,7 +1,11 @@
 import { useRouter } from "next/dist/client/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { formateDate } from "../../helpers/formatters";
-import { setRichTextAsHtml, setRichTextAsText } from "../../services/prismic";
+import {
+  getPosts,
+  setRichTextAsHtml,
+  setRichTextAsText,
+} from "../../services/prismic";
 import { ResultResponsePrismic } from "../../types/ResponsePrismic";
 import MediaShared from "../MediaShared/MediaShared";
 import Tag from "../Tag/Tag";
@@ -10,15 +14,18 @@ import {
   Container,
   ContainerContent,
   ContainerInfo,
+  ContainerItem,
   ContainerPostContent,
   ContainerRest,
   PostTitle,
   Wrapper,
+  PostSubtitle,
 } from "./Post.styles";
 
 // import { Container } from './styles';
 
 const Post = (props: ResultResponsePrismic): JSX.Element => {
+  const [newPosts, setNewPosts] = useState(null);
   const router = useRouter();
   let shareUrl = null;
 
@@ -28,7 +35,15 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
     shareUrl = `https://localhost:3000${router.asPath}`;
   }
 
-  console.log(shareUrl);
+  useEffect(() => {
+    (async () => {
+      const { results } = await getPosts();
+      console.log("posts", results);
+      setNewPosts(results);
+    })();
+  }, []);
+
+  console.log(props);
   return (
     <Wrapper>
       {/* <Breadcrumbs
@@ -45,6 +60,8 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
             <span>Escrito por {props.data.author[0].text}</span>
           </ContainerInfo>
           <PostTitle>{setRichTextAsText(props.data.title)}</PostTitle>
+          <PostSubtitle>{setRichTextAsText(props.data.subtitle)}</PostSubtitle>
+
           <ContainerPostContent
             dangerouslySetInnerHTML={{
               __html: setRichTextAsHtml(props.data.content),
@@ -73,7 +90,25 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
             textNormal={"Postagens mais "}
             textUnderscore={"recente"}
           />
-          <ContainerInfo></ContainerInfo>
+          {newPosts?.map((post: ResultResponsePrismic) => {
+            return (
+              <ContainerItem>
+                <img src={post.data.main_image.url}></img>
+                <div>
+                  <h2>{setRichTextAsText(post.data.title)}</h2>
+
+                  <div>
+                    <span>Escrito por {post.data.author[0].text}</span>
+                    <br></br>
+                    <span>
+                      Publicado em{" "}
+                      {formateDate(new Date(props.first_publication_date))}
+                    </span>
+                  </div>
+                </div>
+              </ContainerItem>
+            );
+          })}
         </ContainerRest>
       </Container>
     </Wrapper>

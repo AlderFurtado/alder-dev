@@ -39,6 +39,16 @@ export const PostTitle = styled.h1`
   }
 `;
 
+export const PostSubtitle = styled.h3`
+  color: #f8f8f8;
+
+  font-size: 1.5vw;
+  font-weight: 300;
+  @media (max-width: 800px) {
+    font-size: 3vw;
+  }
+`;
+
 export const ContainerPostContent = styled.div`
   color: #bdbaba;
   letter-spacing: 1.2px;
@@ -51,15 +61,40 @@ export const ContainerRest = styled.div`
   flex: 4;
   min-width: 250px;
   margin-left: 32px;
+
   h2 {
     margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    margin-left: 0px;
   }
 `;
 
 export const ContainerItem = styled.div`
+  margin-top: 12px;
+
   display: flex;
+  margin-bottom: 32px;
   img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 70px;
+    margin-right: 12px;
+  }
+  span {
+    font-size: 11px;
+    margin: 0;
+    color: #8d8d8d;
+  }
+  h2 {
+    font-weight: 500;
+    color: #f8f8f8;
+    font-size: 1vw;
+  }
+
+  @media (max-width: 800px) {
+    h2 {
+      font-size: 3vw;
+    }
   }
 `;
