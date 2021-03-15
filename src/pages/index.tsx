@@ -7,38 +7,22 @@ import Menu from "../layout/Menu/Menu";
 import Contact from "../components/Contact/Contact";
 import Product from "../components/Project/Project";
 import Footer from "../layout/Footer/Footer";
+import HeadSeo from "../seo/HeadSeo";
 
 export default function Home(): JSX.Element {
   return (
     <div>
       <Menu />
-      <Head>
-        <title>Alder Furtado</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Site profissional de desenvolvedor Full Stack - Alder Furtado"
-        />
-        <meta
-          name="keywords"
-          content="Alder, JavaScript, Dev, Desenvolvedor, Programação"
-        ></meta>
-        <meta name="author" content="Alder Furtado"></meta>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
-        <meta property="og:title" content="Alder Furtado" />
-        <meta
-          property="og:description"
-          content="Site profissional de desenvolvedor Full Stack - Alder Furtado"
-        />
-        <meta
-          property="og:image"
-          content="https://i.ibb.co/YBLKFSf/IMG-20200807-191408-106-1.png"
-        />
-        <meta property="og:url" content="https://alder-dev.vercel.app" />
-      </Head>
+      <HeadSeo
+        title={"Alder Furtado"}
+        description={
+          "Site profissional de desenvolvedor Full Stack - Alder Furtado"
+        }
+        keywords={"Alder, JavaScript, Dev, Desenvolvedor, Programação"}
+        author={"Alder Furtado"}
+        image={"https://i.ibb.co/YBLKFSf/IMG-20200807-191408-106-1.png"}
+        url={"https://alder-dev.vercel.app"}
+      />
       <Hero />
       <About />
       <Resume />

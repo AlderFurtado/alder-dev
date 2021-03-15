@@ -23,9 +23,9 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
   let shareUrl = null;
 
   if (process.env.NODE_ENV == "production") {
-    shareUrl = `https://alder-dev.vercel.app/${router.asPath}`;
+    shareUrl = `https://alder-dev.vercel.app${router.asPath}`;
   } else {
-    shareUrl = `https://localhost:3000/${router.asPath}`;
+    shareUrl = `https://localhost:3000${router.asPath}`;
   }
 
   console.log(shareUrl);
@@ -64,7 +64,7 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
             textNormal={"Se gostou, "}
             textUnderscore={"compartilhe"}
           />
-          <MediaShared url={shareUrl} quote={props.data.title} />
+          <MediaShared url={shareUrl} />
           <br></br>
           <br></br>
         </ContainerContent>
