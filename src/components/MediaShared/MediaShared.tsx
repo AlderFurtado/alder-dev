@@ -12,17 +12,16 @@ import React from "react";
 
 interface MediaSharedProps {
   url: string;
-  quote: string;
 }
 
-const MediaShared = ({ url, quote }: MediaSharedProps): JSX.Element => {
+const MediaShared = ({ url }: MediaSharedProps): JSX.Element => {
   return (
     <div>
-      <FacebookShareButton url={url} quote={quote}>
+      <FacebookShareButton url={url}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       &nbsp;
-      <WhatsappShareButton url={url} title={quote} separator=":: ">
+      <WhatsappShareButton url={url}>
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
       &nbsp;
@@ -33,7 +32,7 @@ const MediaShared = ({ url, quote }: MediaSharedProps): JSX.Element => {
         <TelegramIcon size={32} round />
       </TelegramShareButton>
       &nbsp;
-      <TwitterShareButton url={url} title={quote}>
+      <TwitterShareButton url={url}>
         <TwitterIcon size={32} round />
       </TwitterShareButton>
     </div>
