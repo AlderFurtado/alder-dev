@@ -12,6 +12,7 @@
     "@types/styled-components": "^5.1.7",
     "axios": "^0.21.1",
     "next": "10.0.7",
+    "next-share": "0.0.2",
     "prismic-dom": "^2.2.5",
     "prismic-reactjs": "^1.3.3",
     "react": "17.0.1",

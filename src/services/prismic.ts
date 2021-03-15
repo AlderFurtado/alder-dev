@@ -19,6 +19,14 @@ export const getPost = async (id: string) => {
     }
 }
 
+// export const getPostsByTag = async (tags: string[]) => {
+//     try {
+//         const posts = await client().query([at(document.tags, ["featured"])], )
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
+
 export const setRichTextAsHtml = (richText: any): string => {
     return PrismicDom.RichText.asHtml(richText)
 }

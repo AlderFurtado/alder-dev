@@ -14,7 +14,7 @@ const TextWithUnderscore = ({
 }: TextWithUnderscoreProps): JSX.Element => {
   return (
     <Text>
-      {textNormal + " "}
+      {textNormal}
       <span>{textUnderscore}</span>
     </Text>
   );

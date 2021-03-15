@@ -1,8 +1,9 @@
+import { useRouter } from "next/dist/client/router";
 import React, { useEffect } from "react";
 import { formateDate } from "../../helpers/formatters";
 import { setRichTextAsHtml, setRichTextAsText } from "../../services/prismic";
 import { ResultResponsePrismic } from "../../types/ResponsePrismic";
-import Breadcrumbs from "../Breadcrumbs/Breadcumbs";
+import MediaShared from "../MediaShared/MediaShared";
 import Tag from "../Tag/Tag";
 import TextWithUnderscore from "../TextWithUnderscore/TextWithUnderscore";
 import {
@@ -18,7 +19,16 @@ import {
 // import { Container } from './styles';
 
 const Post = (props: ResultResponsePrismic): JSX.Element => {
-  console.log(props);
+  const router = useRouter();
+  let shareUrl = null;
+
+  if (process.env.NODE_ENV == "production") {
+    shareUrl = `https://alder-dev.vercel.app/${router.asPath}`;
+  } else {
+    shareUrl = `https://localhost:3000/${router.asPath}`;
+  }
+
+  console.log(shareUrl);
   return (
     <Wrapper>
       {/* <Breadcrumbs
@@ -42,7 +52,7 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
           />
           <hr></hr>
           <TextWithUnderscore
-            textNormal={"Tags"}
+            textNormal={"Tags "}
             textUnderscore={"relacionadas"}
           />
           <div style={{ display: "flex" }}>
@@ -50,9 +60,20 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
               <Tag key={`tag ${tag}`} tag={tag} />
             ))}
           </div>
+          <TextWithUnderscore
+            textNormal={"Se gostou, "}
+            textUnderscore={"compartilhe"}
+          />
+          <MediaShared url={shareUrl} quote={props.data.title} />
+          <br></br>
+          <br></br>
         </ContainerContent>
         <ContainerRest>
-          <p>dkaoo</p>
+          <TextWithUnderscore
+            textNormal={"Postagens mais "}
+            textUnderscore={"recente"}
+          />
+          <ContainerInfo></ContainerInfo>
         </ContainerRest>
       </Container>
     </Wrapper>
