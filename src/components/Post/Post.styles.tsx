@@ -18,11 +18,6 @@ export const ContainerContent = styled.div`
   }
 `;
 
-export const ContainerRest = styled.div`
-  flex: 4;
-  min-width: 250px;
-`;
-
 export const ContainerInfo = styled.div`
   margin: 1em 0 2em;
   font-size: 1vw;
@@ -50,4 +45,21 @@ export const ContainerPostContent = styled.div`
   line-height: 20px;
   padding: 5px 0px;
   font-size: 0.9rem;
+`;
+
+export const ContainerRest = styled.div`
+  flex: 4;
+  min-width: 250px;
+  margin-left: 32px;
+  h2 {
+    margin: 0;
+  }
+`;
+
+export const ContainerItem = styled.div`
+  display: flex;
+  img {
+    width: 50px;
+    height: 50px;
+  }
 `;
