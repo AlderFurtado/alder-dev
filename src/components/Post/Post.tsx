@@ -1,4 +1,5 @@
 import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { formateDate } from "../../helpers/formatters";
 import {
@@ -95,8 +96,9 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
               <ContainerItem>
                 <img src={post.data.main_image.url}></img>
                 <div>
-                  <h2>{setRichTextAsText(post.data.title)}</h2>
-
+                  <Link href={post.id}>
+                    <h2>{setRichTextAsText(post.data.title)}</h2>
+                  </Link>
                   <div>
                     <span>Escrito por {post.data.author[0].text}</span>
                     <br></br>

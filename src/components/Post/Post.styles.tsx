@@ -90,6 +90,7 @@ export const ContainerItem = styled.div`
     font-weight: 500;
     color: #f8f8f8;
     font-size: 1vw;
+    cursor: pointer;
   }
 
   @media (max-width: 800px) {
