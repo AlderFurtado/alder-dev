@@ -1,8 +1,8 @@
 import client from "../config/prismicConfig";
 import PrismicDom from "prismic-dom";
-export const getPosts = async () => {
+export const getPosts = async (numberOfPost = 5) => {
     try {
-        const posts = await client().query("")
+        const posts = await client().query("", { pageSize: numberOfPost })
         return Promise.resolve(posts)
     } catch (error) {
         console.error(error)
