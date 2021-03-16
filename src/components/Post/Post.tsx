@@ -23,10 +23,13 @@ import {
   PostSubtitle,
 } from "./Post.styles";
 
-// import { Container } from './styles';
+interface IPost {
+  post: ResultResponsePrismic;
+  newPostsProps: ResultResponsePrismic[];
+}
 
-const Post = (props: ResultResponsePrismic): JSX.Element => {
-  const [newPosts, setNewPosts] = useState(null);
+const Post = ({ post, newPostsProps }: IPost): JSX.Element => {
+  const [newPosts, setNewPosts] = useState(newPostsProps);
   const router = useRouter();
   let shareUrl = null;
 
@@ -36,15 +39,6 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
     shareUrl = `https://localhost:3000${router.asPath}`;
   }
 
-  useEffect(() => {
-    (async () => {
-      const { results } = await getPosts();
-      console.log("posts", results);
-      setNewPosts(results);
-    })();
-  }, []);
-
-  console.log(props);
   return (
     <Wrapper>
       {/* <Breadcrumbs
@@ -53,19 +47,19 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
       ></Breadcrumbs> */}
       <Container>
         <ContainerContent>
-          <img src={props.data.main_image.url} />
+          <img src={post.data.main_image.url} />
           <ContainerInfo>
             <span>
-              Publicado em {formateDate(new Date(props.first_publication_date))}
+              Publicado em {formateDate(new Date(post.first_publication_date))}
             </span>
-            <span>Escrito por {props.data.author[0].text}</span>
+            <span>Escrito por {post.data.author[0].text}</span>
           </ContainerInfo>
-          <PostTitle>{setRichTextAsText(props.data.title)}</PostTitle>
-          <PostSubtitle>{setRichTextAsText(props.data.subtitle)}</PostSubtitle>
+          <PostTitle>{setRichTextAsText(post.data.title)}</PostTitle>
+          <PostSubtitle>{setRichTextAsText(post.data.subtitle)}</PostSubtitle>
 
           <ContainerPostContent
             dangerouslySetInnerHTML={{
-              __html: setRichTextAsHtml(props.data.content),
+              __html: setRichTextAsHtml(post.data.content),
             }}
           />
           <hr></hr>
@@ -74,7 +68,7 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
             textUnderscore={"relacionadas"}
           />
           <div style={{ display: "flex" }}>
-            {props.tags.map((tag) => (
+            {post.tags.map((tag) => (
               <Tag key={`tag ${tag}`} tag={tag} />
             ))}
           </div>
@@ -91,7 +85,7 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
             textNormal={"Postagens mais "}
             textUnderscore={"recente"}
           />
-          {newPosts?.map((post: ResultResponsePrismic) => {
+          {newPosts?.map((post) => {
             return (
               <ContainerItem>
                 <img src={post.data.main_image.url}></img>
@@ -104,7 +98,7 @@ const Post = (props: ResultResponsePrismic): JSX.Element => {
                     <br></br>
                     <span>
                       Publicado em{" "}
-                      {formateDate(new Date(props.first_publication_date))}
+                      {formateDate(new Date(post.first_publication_date))}
                     </span>
                   </div>
                 </div>

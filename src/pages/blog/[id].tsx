@@ -8,9 +8,12 @@ import HeadSeo from "../../seo/HeadSeo";
 import { getPost, getPosts, setRichTextAsText } from "../../services/prismic";
 import { ResultResponsePrismic } from "../../types/ResponsePrismic";
 
-// import { Container } from './styles';
+interface Iblog {
+  post: ResultResponsePrismic;
+  newPosts: ResultResponsePrismic[];
+}
 
-const blog = (props: ResultResponsePrismic): JSX.Element => {
+const blog = ({ post, newPosts }: Iblog): JSX.Element => {
   const router = useRouter();
   let shareUrl = null;
 
@@ -19,18 +22,19 @@ const blog = (props: ResultResponsePrismic): JSX.Element => {
   } else {
     shareUrl = `https://localhost:3000${router.asPath}`;
   }
+
   return (
     <>
       <Menu />
       <HeadSeo
-        title={setRichTextAsText(props.data.title)}
-        description={setRichTextAsText(props.data.subtitle)}
-        keywords={props.tags.toString()}
-        image={props.data.main_image.url}
-        author={props.data.author[0].text}
+        title={setRichTextAsText(post.data.title)}
+        description={setRichTextAsText(post.data.subtitle)}
+        keywords={post.tags.toString()}
+        image={post.data.main_image.url}
+        author={post.data.author[0].text}
         url={shareUrl}
       />
-      <Post {...props} />
+      <Post post={post} newPostsProps={newPosts} />
       <Footer />
     </>
   );
@@ -56,11 +60,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
-  const response = await getPost(context.params.id.toString());
-  const postResponse = { ...response };
+  const responsePost = await getPost(context.params.id.toString());
+
+  const responsePosts = await getPosts(3);
   return {
     props: {
-      ...postResponse,
+      post: responsePost,
+      newPosts: responsePosts.results,
     },
   };
 };
