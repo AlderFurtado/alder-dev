@@ -43,3 +43,12 @@ export const ContainerInput = styled.div`
     margin: 0;
   }
 `;
+
+export const Alert = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    cursor: pointer;
+  }
+`;

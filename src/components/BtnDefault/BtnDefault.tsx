@@ -5,10 +5,15 @@ import { ContainerBtnDefault } from "./BtnDefault.styles";
 
 interface BtnDefaultProps {
   title: string;
+  isLoading: boolean;
 }
 
-const BtnDefault = ({ title }: BtnDefaultProps): JSX.Element => {
-  return <ContainerBtnDefault>{title}</ContainerBtnDefault>;
+const BtnDefault = ({ title, isLoading }: BtnDefaultProps): JSX.Element => {
+  return (
+    <ContainerBtnDefault>
+      {isLoading ? "Carregando" : title}
+    </ContainerBtnDefault>
+  );
 };
 
 export default BtnDefault;

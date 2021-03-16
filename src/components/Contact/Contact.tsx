@@ -23,14 +23,21 @@ const Contact = (): JSX.Element => {
       <Container activeAnimation={activeAnimation}>
         <div>
           <ul>
-            <li>
-              <Image src="/whatsapp.svg" width="24" height="24" /> &nbsp;
-              aldermarcel12@gmail.com
-            </li>
-            <li>
-              <Image src="/linkedin.svg" width="24" height="24" /> &nbsp; Alder
-              Furtado
-            </li>
+            <a href="mailto:aldermarcel12@gmail.com" target="_blank">
+              <li>
+                <Image src="/mailwhite.svg" width="24" height="24" /> &nbsp;
+                aldermarcel12@gmail.com
+              </li>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/alder-furtado/"
+              target="_blank"
+            >
+              <li>
+                <Image src="/linkedin.svg" width="24" height="24" /> &nbsp;
+                Alder Furtado
+              </li>
+            </a>
           </ul>
         </div>
         <ContainerForm activeAnimation={activeAnimation}>
