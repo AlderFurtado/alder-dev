@@ -62,12 +62,13 @@ export const getStaticProps: GetStaticProps = async (
 ) => {
   const responsePost = await getPost(context.params.id.toString());
 
-  const responsePosts = await getPosts(3);
+  const responsePosts = await getPosts(5);
   return {
     props: {
       post: responsePost,
       newPosts: responsePosts.results,
     },
+    revalidate: 5,
   };
 };
 

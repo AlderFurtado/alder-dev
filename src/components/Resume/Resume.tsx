@@ -16,34 +16,34 @@ const Resume = (): JSX.Element => {
       id: "1",
       name: "CESUPA",
       activity:
-        "Centro universitario de Estado do Pará, formação em bacharelado em Ciência da Computação",
+        "Centro universitario de Estado do Pará. Formação em bacharelado em Ciência da Computação",
       period: "01/2016 - 12/2019",
     },
     {
       id: "2",
       name: "PRODEPA",
       activity:
-        "Empresa de Tecnologia da Informação e Comunicação do Estado do Pará, estágio em desenvolvimento Android",
+        "Empresa de Tecnologia da Informação e Comunicação do Estado do Pará. Estágio em desenvolvimento Android",
       period: "04/2018 - 09/2018",
     },
     {
       id: "3",
       name: "SERPRO",
       activity:
-        "Serviço Federal de Processamento de Dados, estágio em desenvolvimento web",
+        "Serviço Federal de Processamento de Dados. Estágio em desenvolvimento web",
       period: "10/2018 - 02/2020",
     },
     {
       id: "4",
       name: "NIEJ",
       activity:
-        "Núcleo de Inovação e Empreendedorismo Junior, gestor em tecnologia",
+        "Núcleo de Inovação e Empreendedorismo Junior, Gestor em tecnologia",
       period: "03/2018 - 08/2018",
     },
     {
       id: "5",
       name: "BANPARÁ",
-      activity: "Banco do Estado do Pará, analista de sistema de crédito",
+      activity: "Banco do Estado do Pará, Analista de sistema de crédito",
       period: "02/2018 - 04/2020",
     },
     {
