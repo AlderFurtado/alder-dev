@@ -50,7 +50,7 @@ export const PostSubtitle = styled.h3`
 `;
 
 export const ContainerPostContent = styled.div`
-  color: #bdbaba;
+  color: #eeeeee;
   letter-spacing: 1.2px;
   line-height: 20px;
   padding: 5px 0px;
