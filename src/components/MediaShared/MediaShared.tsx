@@ -25,10 +25,7 @@ const MediaShared = ({ url }: MediaSharedProps): JSX.Element => {
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
       &nbsp;
-      <TelegramShareButton
-        url={"https://github.com/next-share"}
-        title={"next-share is a social share buttons plugin for React apps."}
-      >
+      <TelegramShareButton url={url}>
         <TelegramIcon size={32} round />
       </TelegramShareButton>
       &nbsp;
