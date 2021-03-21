@@ -6,14 +6,18 @@ import { getPosts } from "../../services/prismic";
 import ResponsePrismic from "../../types/ResponsePrismic";
 import Footer from "../../layout/Footer/Footer";
 import HeadSeo from "../../seo/HeadSeo";
+import styled from "styled-components";
 
+export const Wrapper = styled.main`
+  background-color: #011230;
+`;
 interface BlogProps {
   postsResponse: ResponsePrismic;
 }
 
 const blog = ({ postsResponse }: BlogProps): JSX.Element => {
   return (
-    <>
+    <Wrapper>
       <HeadSeo
         title={"Alder Furtado"}
         description={
@@ -27,7 +31,7 @@ const blog = ({ postsResponse }: BlogProps): JSX.Element => {
       <Menu />
       <Blog postsResponse={postsResponse} />
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 

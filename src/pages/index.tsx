@@ -9,9 +9,15 @@ import Product from "../components/Project/Project";
 import Footer from "../layout/Footer/Footer";
 import HeadSeo from "../seo/HeadSeo";
 
+import styled from "styled-components";
+
+export const Wrapper = styled.main`
+  background-color: #011230;
+`;
+
 export default function Home(): JSX.Element {
   return (
-    <div>
+    <Wrapper>
       <Menu />
       <HeadSeo
         title={"Alder Furtado"}
@@ -29,6 +35,6 @@ export default function Home(): JSX.Element {
       {/* <Product /> */}
       <Contact />
       <Footer />
-    </div>
+    </Wrapper>
   );
 }

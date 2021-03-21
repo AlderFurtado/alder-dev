@@ -8,10 +8,16 @@ import HeadSeo from "../../seo/HeadSeo";
 import { getPost, getPosts, setRichTextAsText } from "../../services/prismic";
 import { ResultResponsePrismic } from "../../types/ResponsePrismic";
 
+import styled from "styled-components";
+
 interface Iblog {
   post: ResultResponsePrismic;
   newPosts: ResultResponsePrismic[];
 }
+
+export const Wrapper = styled.main`
+  background-color: #011230;
+`;
 
 const blog = ({ post, newPosts }: Iblog): JSX.Element => {
   const router = useRouter();
@@ -24,7 +30,7 @@ const blog = ({ post, newPosts }: Iblog): JSX.Element => {
   }
 
   return (
-    <>
+    <Wrapper>
       <Menu />
       <HeadSeo
         title={setRichTextAsText(post.data.title)}
@@ -36,7 +42,7 @@ const blog = ({ post, newPosts }: Iblog): JSX.Element => {
       />
       <Post post={post} newPostsProps={newPosts} />
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 
