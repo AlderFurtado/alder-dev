@@ -33,7 +33,8 @@ export const PostTitle = styled.h1`
   margin-bottom: 0px;
   color: #f8f8f8;
   font-size: 2.5vw;
-
+  letter-spacing: 1.2px;
+  line-height: 40px;
   @media (max-width: 800px) {
     font-size: 5vw;
   }
@@ -41,9 +42,11 @@ export const PostTitle = styled.h1`
 
 export const PostSubtitle = styled.h3`
   color: #f8f8f8;
+  letter-spacing: 1.2px;
+  line-height: 30px;
 
   font-size: 1.5vw;
-  font-weight: 300;
+  font-weight: 500;
   @media (max-width: 800px) {
     font-size: 3vw;
   }
@@ -52,7 +55,7 @@ export const PostSubtitle = styled.h3`
 export const ContainerPostContent = styled.div`
   color: #eeeeee;
   letter-spacing: 1.2px;
-  line-height: 20px;
+  line-height: 30px;
   padding: 5px 0px;
   font-size: 0.9rem;
 `;
