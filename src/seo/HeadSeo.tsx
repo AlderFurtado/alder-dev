@@ -19,7 +19,6 @@ const HeadSeo = ({
   image,
   url,
 }: HeadSeoProps) => {
-  console.log(title, description, keywords, author, image, url);
   return (
     <Head>
       <title>{title}</title>
