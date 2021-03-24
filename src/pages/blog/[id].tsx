@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPropsContext } from "next";
 import { useRouter } from "next/dist/client/router";
-import React, { Context, useEffect, useState } from "react";
+import React from "react";
 import Post from "../../components/Post/Post";
 import Footer from "../../layout/Footer/Footer";
 import Menu from "../../layout/Menu/Menu";

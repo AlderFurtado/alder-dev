@@ -49,6 +49,7 @@ export const PostSubtitle = styled.h3`
   font-weight: 500;
   @media (max-width: 800px) {
     font-size: 3vw;
+    line-height: 20px;
   }
 `;
 
