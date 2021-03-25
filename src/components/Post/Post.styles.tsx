@@ -34,7 +34,7 @@ export const PostTitle = styled.h1`
   color: #f8f8f8;
   font-size: 2.5vw;
   letter-spacing: 1.2px;
-  line-height: 40px;
+  line-height: 1.3;
   @media (max-width: 800px) {
     font-size: 5vw;
   }
