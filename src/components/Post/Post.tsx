@@ -34,7 +34,7 @@ const Post = ({ post, newPostsProps }: IPost): JSX.Element => {
   let shareUrl = null;
 
   if (process.env.NODE_ENV == "production") {
-    shareUrl = `https://alder-dev.vercel.app${router.asPath}`;
+    shareUrl = `https://alderdev.tech${router.asPath}`;
   } else {
     shareUrl = `https://localhost:3000${router.asPath}`;
   }
