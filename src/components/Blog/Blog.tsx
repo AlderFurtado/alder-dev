@@ -25,8 +25,9 @@ const Blog = ({ postsResponse }: BlogProps): JSX.Element => {
     <Wrapper>
       <h2>Blog</h2>
       <p>
-        Aqui escrevemos, primoridalmente, sobre tecnologia, programação e
-        empreededorismo, mas não se espante se ver algo inusitado😅
+        Aqui escrevemos, primoridalmente, sobre{" "}
+        <strong>tecnologia, programação e empreededorismo</strong>.<br></br> Mas
+        não se espante se ver algo inusitado😅
       </p>
 
       <h5>

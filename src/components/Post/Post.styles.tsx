@@ -15,6 +15,7 @@ export const ContainerContent = styled.div`
   min-width: 280px;
   img {
     width: 100%;
+    max-height: 300px;
   }
 `;
 

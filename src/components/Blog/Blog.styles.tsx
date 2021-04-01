@@ -14,7 +14,7 @@ export const Wrapper = styled.section`
   }
 
   p {
-    width: 70%;
+    width: 50%;
     font-size: 1.1rem;
   }
 
