@@ -38,6 +38,7 @@ const blog = ({ postsResponse }: BlogProps): JSX.Element => {
 export const getStaticProps: GetStaticProps = async () => {
   const response = await getPosts();
   const postsResponse = { ...response };
+  console.log(postsResponse);
   return {
     props: {
       postsResponse,
