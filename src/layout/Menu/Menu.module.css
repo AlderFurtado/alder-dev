@@ -1,5 +1,6 @@
 .wrapper {
   padding: 0 12%;
+
   padding-top: 1em;
   color: #f8f8f8;
   display: flex;
@@ -34,6 +35,9 @@
 }
 
 @media (max-width: 800px) {
+  .wrapper {
+    padding: 0 8%;
+  }
   .menu_web {
     display: none;
   }
