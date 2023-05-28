@@ -13,11 +13,11 @@ const Hero = (): JSX.Element => {
         </h1>
         <p>
           Todo négocio precisa de tecnologia,<br></br> e o meu négocio é
-          tecnologia
+          tecnologia.
         </p>
       </div>
       <div className={styles.container_img}>
-        <img src="./hero.png" alt="Alder DEV" />
+        <img src="./hero.png" alt="Alder Furtado" />
       </div>
     </section>
   );

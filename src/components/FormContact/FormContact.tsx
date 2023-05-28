@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
-import { Container, ContainerInput } from "./FormContact.styles";
+import BtnDefault from "../BtnDefault/BtnDefault";
+import { Container, ContainerInput, Alert } from "./FormContact.styles";
 
 const FormContact = (): JSX.Element => {
   const [name, setName] = useState("");
@@ -12,13 +13,11 @@ const FormContact = (): JSX.Element => {
 
   const [isSendingForm, setIsSendingForm] = useState(false);
 
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
   const CORS_PROXY = "https://cors-escape.herokuapp.com/";
   const GOOGLE_FORM_ACTION_URL =
     "https://docs.google.com/forms/u/1/d/e/1FAIpQLScNV_Gn_0BR3pfqnrpM_HqtsWXW0CF2pkL1K9ycW5YiZDUTZg/formResponse";
-
-  useEffect(() => {
-    Notification.requestPermission();
-  }, []);
 
   const handleForm = async (e: FormEvent) => {
     e.preventDefault();
@@ -35,13 +34,9 @@ const FormContact = (): JSX.Element => {
       const result = await axios.post(GOOGLE_FORM_ACTION_URL, formData);
     } catch (error) {
       console.log(error);
+      setIsAlertVisible(true);
     } finally {
-      if (Notification.permission == "granted") {
-        console.log("kdaik");
-        new Notification("Status da messagem", {
-          body: "Messagem enviada com sucesso 😎",
-        });
-      }
+      setIsAlertVisible(true);
     }
     setIsSendingForm(false);
     resetForm();
@@ -79,50 +74,46 @@ const FormContact = (): JSX.Element => {
     setSubject("");
   };
 
-  const sec = useRef(null);
-  const [activeAnimation, setActiveAnimaion] = useState(false);
-
-  useEffect((): void => {
-    window.addEventListener("scroll", () => {
-      if (sec.current?.getBoundingClientRect().top > 400) {
-        console.log(sec.current?.getBoundingClientRect().top);
-      } else {
-        setActiveAnimaion(true);
-      }
-    });
-  }, []);
-
   return (
-    <Container onSubmit={(e) => handleForm(e)} ref={sec}>
-      <ContainerInput activeAnimation={false}>
-        <input
-          type="text"
-          placeholder="Nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        {!isNameValid && <span>Preencha o campo</span>}
-      </ContainerInput>
-      <ContainerInput activeAnimation={false}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        {!isEmailValid && <span>Preencha o campo</span>}
-      </ContainerInput>
-      <ContainerInput activeAnimation={false}>
-        <textarea
-          placeholder="Assunto"
-          rows={15}
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
-        {!isSubjectValid && <span>Preencha o campo</span>}
-      </ContainerInput>
-      <button type="submit">{isSendingForm ? "Enviando..." : "Enviar"}</button>
-    </Container>
+    <>
+      <Container onSubmit={(e) => handleForm(e)}>
+        <ContainerInput>
+          <input
+            type="text"
+            placeholder="Nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          {!isNameValid && <span>Preencha o campo</span>}
+        </ContainerInput>
+        <ContainerInput>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {!isEmailValid && <span>Preencha o campo</span>}
+        </ContainerInput>
+        <ContainerInput>
+          <textarea
+            placeholder="Assunto"
+            rows={15}
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          {!isSubjectValid && <span>Preencha o campo</span>}
+        </ContainerInput>
+        <BtnDefault title="Enviar" isLoading={isSendingForm} />
+      </Container>
+
+      {isAlertVisible && (
+        <Alert>
+          <h4 style={{ color: "green" }}>Messagem enviada com sucesso</h4>{" "}
+          <span onClick={() => setIsAlertVisible(false)}>X</span>
+        </Alert>
+      )}
+    </>
   );
 };
 

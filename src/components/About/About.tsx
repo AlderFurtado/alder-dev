@@ -10,7 +10,6 @@ const About = (): JSX.Element => {
   useEffect((): void => {
     window.addEventListener("scroll", () => {
       if (sec.current?.getBoundingClientRect().top > 400) {
-        console.log(sec.current?.getBoundingClientRect().top);
       } else {
         setActiveAnimaion(true);
       }
@@ -29,8 +28,8 @@ const About = (): JSX.Element => {
           Universitário do Pará. Apaixonado por tecnologia, acredito que a mesma
           possa ser a extensão da capacidade humana. Também me arrisco no mundo
           da finanças e super curioso pelo estudo da psicologia. Este é um
-          espaço que para eu contar um pouco da minha historia e aprendizados88
-          😃
+          espaço para eu contar um pouco da minha historia e aprendizados,
+          espero que você faça bom proveito durante sua navegação 😃
         </Subtitle>
       </div>
     </Wrapper>

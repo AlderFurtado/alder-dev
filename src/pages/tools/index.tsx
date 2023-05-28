@@ -1,24 +1,19 @@
-import Head from "next/head";
+import React from "react";
 
-import Hero from "../components/Hero/Hero";
-import About from "../components/About/About";
-import Resume from "../components/Resume/Resume";
-import Menu from "../layout/Menu/Menu";
-import Contact from "../components/Contact/Contact";
-import Product from "../components/Project/Project";
-import Footer from "../layout/Footer/Footer";
-import HeadSeo from "../seo/HeadSeo";
-
+import Footer from "../../layout/Footer/Footer";
+import HeadSeo from "../../seo/HeadSeo";
+import Menu from "../../layout/Menu/Menu";
 import styled from "styled-components";
 
 export const Wrapper = styled.main`
   background-color: #011230;
 `;
 
-export default function Home(): JSX.Element {
+import Link from "next/link";
+
+const tools: React.FC = () => {
   return (
     <Wrapper>
-      <Menu />
       <HeadSeo
         title={"Alder Furtado"}
         description={
@@ -29,12 +24,14 @@ export default function Home(): JSX.Element {
         image={"https://i.ibb.co/YBLKFSf/IMG-20200807-191408-106-1.png"}
         url={"https://alder-dev.vercel.app"}
       />
-      <Hero />
-      <About />
-      <Resume />
-      {/* <Product /> */}
-      <Contact />
+      <Menu />
+      <div>
+        <h1>Algumas ferramentas para desenvolvedores</h1>
+        <Link href="tools/snippet_hooks">Snipptes Hooks</Link>
+      </div>
       <Footer />
     </Wrapper>
   );
-}
+};
+
+export default tools;

@@ -20,10 +20,16 @@ const Menu = (): JSX.Element => {
           <Link href="/">
             <li>Inicio</li>
           </Link>
+          <Link href="/tools">
+            <li>Ferramentas</li>
+          </Link>
           <Link href="/blog">
             <li>Blog</li>
           </Link>
-          <li>Contato</li>
+
+          <a href="#contact">
+            <li>Contato</li>
+          </a>
         </ul>
         {/* Part mobile */}
         <div

@@ -1,31 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FormContact from "../FormContact/FormContact";
-import styles from "./Contact.module.css";
 
 import Image from "next/image";
+import { Wrapper, Container, ContainerForm } from "./Contact.styles";
 
 const Contact = (): JSX.Element => {
+  const sec = useRef(null);
+  const [activeAnimation, setActiveAnimaion] = useState(false);
+
+  useEffect((): void => {
+    window.addEventListener("scroll", () => {
+      if (sec.current?.getBoundingClientRect().top > 300) {
+      } else {
+        setActiveAnimaion(true);
+      }
+    });
+  }, []);
+
   return (
-    <section className={styles.wrapper}>
+    <Wrapper id="contact" activeAnimation={activeAnimation} ref={sec}>
       <h2>Contato</h2>
-      <div className={styles.container}>
+      <Container activeAnimation={activeAnimation}>
         <div>
           <ul>
-            <li>
-              <Image src="/whatsapp.svg" width="24" height="24" /> &nbsp;
-              aldermarcel12@gmail.com
-            </li>
-            <li>
-              <Image src="/linkedin.svg" width="24" height="24" /> &nbsp; Alder
-              Furtado
-            </li>
+            <a href="mailto:aldermarcel12@gmail.com" target="_blank">
+              <li>
+                <Image src="/mailwhite.svg" width="24" height="24" /> &nbsp;
+                aldermarcel12@gmail.com
+              </li>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/alder-furtado/"
+              target="_blank"
+            >
+              <li>
+                <Image src="/linkedin.svg" width="24" height="24" /> &nbsp;
+                Alder Furtado
+              </li>
+            </a>
           </ul>
         </div>
-        <div>
+        <ContainerForm activeAnimation={activeAnimation}>
           <FormContact />
-        </div>
-      </div>
-    </section>
+        </ContainerForm>
+      </Container>
+    </Wrapper>
   );
 };
 
