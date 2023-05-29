@@ -56,7 +56,7 @@ export const getStaticPaths = async () => {
       },
     };
   });
-
+  console.log(paths);
   return {
     paths,
     fallback: true,
@@ -66,9 +66,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
+  console.log(context);
   const responsePost = await getPost(context.params.id.toString());
 
   const responsePosts = await getPosts(5);
+
+  console.log(responsePost);
   return {
     props: {
       post: responsePost,

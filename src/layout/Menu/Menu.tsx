@@ -20,9 +20,13 @@ const Menu = (): JSX.Element => {
           <Link href="/">
             <li>Inicio</li>
           </Link>
+          <Link href="/tools">
+            <li>Ferramentas</li>
+          </Link>
           <Link href="/blog">
             <li>Blog</li>
           </Link>
+
           <a href="#contact">
             <li>Contato</li>
           </a>

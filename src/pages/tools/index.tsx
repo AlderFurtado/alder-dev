@@ -1,21 +1,17 @@
-import React, { useEffect } from "react";
-import Blog from "../../components/Blog/Blog";
-import Menu from "../../layout/Menu/Menu";
-import { GetStaticProps } from "next";
-import { getPosts } from "../../services/prismic";
-import ResponsePrismic from "../../types/ResponsePrismic";
+import React from "react";
+
 import Footer from "../../layout/Footer/Footer";
 import HeadSeo from "../../seo/HeadSeo";
+import Menu from "../../layout/Menu/Menu";
 import styled from "styled-components";
 
 export const Wrapper = styled.main`
   background-color: #011230;
 `;
-interface BlogProps {
-  postsResponse: ResponsePrismic;
-}
 
-const blog = ({ postsResponse }: BlogProps): JSX.Element => {
+import Link from "next/link";
+
+const tools: React.FC = () => {
   return (
     <Wrapper>
       <HeadSeo
@@ -29,20 +25,13 @@ const blog = ({ postsResponse }: BlogProps): JSX.Element => {
         url={"https://alder-dev.vercel.app"}
       />
       <Menu />
-      <Blog postsResponse={postsResponse} />
+      <div>
+        <h1>Algumas ferramentas para desenvolvedores</h1>
+        <Link href="tools/snippet_hooks">Snipptes Hooks</Link>
+      </div>
       <Footer />
     </Wrapper>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await getPosts();
-  const postsResponse = { ...response };
-  return {
-    props: {
-      postsResponse,
-    },
-  };
-};
-
-export default blog;
+export default tools;
